@@ -1,0 +1,15 @@
+This is a very naïve implementation of a dumb notifiaction service. It uses 
+Google App Engine's simple webapp framework. I wrote it as a learning 
+experiment before writing some more serious App Engine projects. It can
+be found running online at:
+
+   http://fakesms.pathdependent.com/
+
+It mostly exists to notify me -- or anyone else who wishes to use it --
+when a long-running job has finished. If the computer running the job
+doesn't have sendmail, (or even if it does,) then this is a very easy way
+of adding email notifications on completion. Just execute a HTTP-GET for the
+final command in the long running job.
+
+This is meant to be very simple. The entire message should fit in the
+subject; the body of the message just says who sent it (fakesms).

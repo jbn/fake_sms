@@ -1,0 +1,64 @@
+body{
+    font-family:Verdana,Arial,Tahoma,sans-sherif;
+    text-align:center;
+}
+
+h1{
+    margin-bottom:0;
+    margin-top:1em;
+}
+h1 span{color:#aaa}
+img{border:0}
+p{line-height:1.5}
+a:link, a:visited{color:green}
+a:hover{color:blue}
+a:active{color:red}
+form{display:inline}
+
+div#content{
+    display:block;
+    margin: 0 auto;
+    text-align:left;
+    width: 600px;
+    padding:10px;
+}
+
+p#highlight{
+    text-align:center;
+    margin-top:0;
+}
+p#highlight span{
+    background-color:#fffacd;
+    border-bottom:1px solid #eedd82;
+    color:#8b7765;
+    font-weight:bold;
+    padding:5px;
+}
+
+p#share{
+    margin-top:2em;
+    position:relative;
+    text-align:center;
+}
+span#twitter{position:relative;top:4px;}
+
+div#actions{text-align:center}
+
+div.commands input{
+    border:1px solid #e7e7e7;
+    width:600px;
+}
+div.commands input:hover{background-color:#ffefd5}
+div.command-type{
+    font-weight:bold;
+    margin-top:1em;
+}
+
+p.loud-message{
+    background-color:#ffe4e1;
+    border:1px solid #8B2500;
+    color:#aa0000;
+    font-weight:bold;
+    padding:3px;
+    text-align:center;
+}

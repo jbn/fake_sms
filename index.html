@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Email Yourself Via a Get Request</title>
+	<link href="/stylesheets/common.css" media="screen" rel="stylesheet" type="text/css" />
+	<!--[if IE]>
+		<script lang="javascript" href="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+</head>
+<body>
+  <header>
+    <h1>FakeSMS<span>.PathDependent.com</span></h1>
+  </header>
+  <div id="content">
+    <div id="intro">
+      <p id="highlight">
+	<span>FakeSMS sends you an short email based on a http query string.</span>
+      </p>
+      <p id="share">
+	<span id="twitter">
+	  <a href="http://twitter.com/home?status=RT @johnbnelson Simple FakeSMS Service http://fakesms.pathdependent.com/" title="Click to share this post on Twitter"><img src="/images/retweet.gif" /></a>
+	</span>
+	<span id="facebook">
+	  <a name="fb_share" type="button_count" href="http://www.facebook.com/sharer.php?u=http://fakesms.pathdependent.com/&t=Email+Yourself+Via+a+Get+Request">Share</a><script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>
+	</span>
+      </p>
+      <p><a href="http://pathdependent.com/about/" rel="author">I</a> made it while learning <a href="http://code.google.com/appengine/docs/python/gettingstarted/">Google's App Engine</a>. (<a href="http://github.com/jbn/fake_sms">Source code on GitHub</a>). I use it when I have a long running batch job that I don't want to babysit. By tacking on an http request to the end of the job, I can add notifications very simply.
+      </p>
+      <p>
+	Signup and account creation is as easy as logging in with your Google Account.
+      </p>
+      {% if deleted %}
+      <p class="loud-message">
+	Your account has been deleted
+      </p>
+      {% endif %}
+    </div>
+
+    <div id="actions">
+      {% if user %}
+      <form action="{{logout_url}}" method="post">
+	<input type="submit" value="Logout"/>
+      </form>
+      <form action="/get_key" method="get">
+	<input type="Submit" value="Destroy Old / Generate New Key" />
+      </form>
+      <form action="/delete_my_account" method="post">
+	<input type="Submit" value="Delete My Account" />
+      </form>
+      {% else %}
+      <form action="/get_key" method="get">
+	<input type="submit" value="Login and Get Existing Key"/>
+      </form>
+      <form action="/get_key?skip_generation=True" method="get">
+	<input type="Submit" value="Generate Account and Key" />
+      </form>
+      {% endif %}
+    </div>
+
+  <div class="commands">
+    <div class="command-type">Curl</div>
+    <div><input type="text" value="curl '{{smimics_url}}'" onclick="this.select()"></div>
+
+    <div class="command-type">Python</div>
+    <div><input type="text" value="import urllib;u=urllib.urlretrieve('{{smimics_url}}')" onclick="this.select()"></div>
+
+    <div class="command-type">Ruby</div>
+    <div><input type="text" value="require 'open-uri';open('{{smimics_url}}'){|f| f.read}" onclick="this.select()"></div>
+
+    <div class="command-type">PHP</div>
+    <div><input type="text" value="file_get_contents('{{smimics_url}}')" onclick="this.select()"></div>
+  
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-3371303-7");
+pageTracker._setDomainName(".pathdependent.com");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+</body>
+</html>
