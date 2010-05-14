@@ -93,6 +93,11 @@ class GetKey(webapp.RequestHandler):
     def get(self):
         """Generates a key if required."""
         user = users.get_current_user()
+
+        # Normally, you would do this via "login: required" in your app.yaml
+        # I did not because this was a learning experiment. (I.E. I read 
+        # the Python Application Configuration tutorial after writing this
+        # class method.)
         if not user:
             self.redirect(users.create_login_url(self.request.uri))
             return
